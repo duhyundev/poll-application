@@ -28,7 +28,7 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
     def get_queryset(self):
-        return Question.objects.filter(choice__isnull=False).filter(pub_date__lte=timezone.now())
+        return Question.objects.filter(pub_date__lte=timezone.now()).exclude(choice__isnull=True)
 
 
 def vote(request, question_id):

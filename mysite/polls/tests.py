@@ -163,52 +163,32 @@ class QuestionDetailView(TestCase):
         self.assertContains(response, past_question.question_text)
 
 
-""" We ought to add a similar get_queryset method to ResultsView and create a new test class for that view.
-It’ll be very similar to what we have just created; in fact there will be a lot of repetition.
-
-We could also improve our application in other ways, adding tests along the way.
-For example, it’s silly that Questions can be published on the site that have no Choices.
-So, our views could check for this, and exclude such Questions.
-
-Our tests would create a Question without Choices and then test that it’s not published, as well as create a similar Question with Choices, and test that it is published.
-
-Perhaps logged-in admin users should be allowed to see unpublished Questions, but not ordinary visitors.
-Again: whatever needs to be added to the software to accomplish this should be accompanied by a test,
-whether you write the test first and then make the code pass the test, or work out the logic in your code first and then write a test to prove it.
-
-At a certain point you are bound to look at your tests and wonder whether your code is suffering from test bloat, which brings us to: """
-
-
-""" class QuestionResultsView(TestCase):
-    def test_recently_question_with_choice(self):
+class QuestionResultsView(TestCase):
+    def test_past_question_with_choice(self):
         # Given
-        time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
-        recently_question_with_choice = create_question(
-            question_text='I have Choice.', days=time)
+        past_question_with_choice = create_question(
+            question_text='I have Choice.', days=-1)
+        create_choice(past_question_with_choice.id, 'choice 1.')
 
-        recently_question_with_choice.choice_set.create(
-            choice_text='choice 1', votes=0)
-
-        url = reverse('polls:results', agrs=(
-            recently_question_with_choice.id,))
+        url = reverse('polls:results', args=(
+            past_question_with_choice.id,))
         # When
         response = self.client.get(url)
 
         # Assert
         self.assertContains(
-            response, recently_question_with_choice.question_text)
+            response, past_question_with_choice.question_text)
 
-    def test_recently_question_with_no_choice(self):
+    def test_past_question_with_no_choice(self):
         # Given
-        time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
-        recently_question_with_no_choice = create_question(
-            question_text='I have no Choice.', days=time)
+        past_question_with_no_choice = create_question(
+            question_text='I have no Choice.', days=-1)
 
-        url = reverse('polls:results', agrs=(
-            recently_question_with_no_choice.id,))
+        url = reverse('polls:results', args=(
+            past_question_with_no_choice.id,))
 
         # When
         response = self.client.get(url)
 
         # Assert
-        self.assertEqual(response.status_code, 404) """
+        self.assertEqual(response.status_code, 404)
