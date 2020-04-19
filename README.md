@@ -1,4 +1,6 @@
-# Polls application [](https://img.shields.io/badge/license-MIT-blue) [](https://img.shields.io/github/commit-activity/w/duhyundev/poll-application) [](https://img.shields.io/github/last-commit/duhyundev/poll-application)
+# Polls application
+![Language](https://img.shields.io/github/languages/count/duhyundev/poll-application)
+![Most Language](https://img.shields.io/github/languages/top/duhyundev/poll-application) ![Coverage](https://img.shields.io/coveralls/github/duhyundev/poll-application)![Monthly Commit](https://img.shields.io/github/commit-activity/m/duhyundev/poll-application) ![Last Commit](https://img.shields.io/github/last-commit/duhyundev/poll-application) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
 ## Getting Started
