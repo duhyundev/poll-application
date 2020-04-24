@@ -77,4 +77,3 @@ See also the list of [contributors](https://github.com/duhyundev/poll-applcation
 
 * Hat tip to anyone whose code was used
 * Inspiration - django tutorial
-* etc
