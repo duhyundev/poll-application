@@ -1,6 +1,10 @@
 /venv
 /mysite/db.sqlite3
+
+# testing
 /mysite/.coverage
+/mysite/htmlcov
+
 /.vscode
 
 **/__pycache__/
