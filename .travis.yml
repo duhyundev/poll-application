@@ -1,0 +1,17 @@
+language: python
+
+# python versions
+python:
+  - "3.7.7"
+  - "2.7.4"
+
+virtualenv:
+  system_site_packages: true
+
+# To run tests
+script:
+  - coverage run --source='.' manage.py test polls
+  
+# send coverage report to coveralls
+after_success:
+  coveralls
