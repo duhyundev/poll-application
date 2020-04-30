@@ -11,7 +11,7 @@ install:
   - pip install -r requirements.txt
 
 # To run tests
-script: coverage run --source='.' manage.py test polls
+script: coverage run --source='.' mysite/manage.py test polls
 
 # send coverage report to coveralls
 after_success:
