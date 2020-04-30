@@ -7,7 +7,7 @@ virtualenv:
 
 # python versions
 python:
-  - '3.5'
+  - '3.7.7'
 
 # command to install dependencies
 install:
